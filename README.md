@@ -1,3 +1,6 @@
+## Coursera_Capstone
+Coursera Data Science Capstone
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/bcjwong/Coursera_Capstone/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
