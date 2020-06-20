@@ -21,6 +21,7 @@ The goal of this capstone project is to explore and extrapolate exisiting data t
 
 <p align="center">
   <img src="/images/df_crime.png">
+  <b> Figure 1 </b>
 </p>
 	
 -  Note that in figure 1, the data set from the website contains the district code but not the name. This proved to be confusing in the analysis portion. The next step in data pre-processing was to map each district name from the *boston_district.csv* to the processed crime dataframe. The result is shown in figure 2
