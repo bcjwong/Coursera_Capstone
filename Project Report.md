@@ -21,6 +21,7 @@ The goal of this capstone project is to explore and extrapolate exisiting data t
 
 <p align="center">
   <img src="/images/df_crime.png">
+  <hr>
   <b> Figure 1 </b>
 </p>
 	
