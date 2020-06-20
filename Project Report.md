@@ -1,6 +1,6 @@
-# Crime Incidents & Venues Data Analysis in Boston, Massachusetts
-
-(Capstone Project - The Battle of Neighborhoods)
+# Crime Incidents & Venues Data Analysis in Boston
+Coursera - Applied Data Science Capstone
+A Capstone Project - The Battle of Neighborhoods
 
 ## Introduction/Business Problem
 The goal of this capstone project is to explore and extrapolate exisiting data to solve real life problems. Hence, for this project, we will look at which location in Boston is most promising for opening a new restaurant. Specifically, we will explore the crime rates in the 12 districts of Boston, different types of venues in each location, and output the safest and most profitable location to open a restaurant venue. 
@@ -19,19 +19,19 @@ The goal of this capstone project is to explore and extrapolate exisiting data t
 
 	![df_crime](/images/df_crime.png)
 
-	*figure 1*
+	Figure 1
 	
 -  Note that in figure 1, the data set from the website contains the district code but not the name. This proved to be confusing in the analysis portion. The next step in data pre-processing was to map each district name from the *boston_district.csv* to the processed crime dataframe. The result is shown in figure 2
 
 	![df](/images/df.png)
 
-	*figure 2*
+	Figure 2
 
 -  In order to obtain local venues from each district in Boston, the foursqare API was implemented. With each API request (given latitude and longitude coordinates), the design limit was set to 100 venues and a radius of 1200 meters. Here is an example of the venues data set that was returned. 
 
 	![api-preprocess](/images/api-preprocess.png)
-	
-	*figure 3*
+
+	Figure 3
 
 
 ## Methodology
