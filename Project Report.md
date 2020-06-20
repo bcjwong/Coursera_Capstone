@@ -14,10 +14,14 @@ The goal of this capstone project is to explore and extrapolate exisiting data t
 
 -  In order to obtain venue information around the districts in Boston, the Forsquare API will be used to get the most common venues in each district. This will gives us an understanding of the types and number of venues that are located in Boston. 
 
-- Boston geospatial map downloaded from *Analyze Boston* (https://data.boston.gov/dataset/boston-neighborhoods/resource/13ee2b65-6547-4168-b112-83995f138602). This is used for plotting choropleth map. 
+- Boston geospatial map downloaded from *Analyze Boston* (https://data.boston.gov/dataset/boston-neighborhoods/resource/13ee2b65-6547-4168-b112-83995f138602). 
 
 ### Data Pre-processing
 -  The *boston_crimerate.csv* file has numerous entries that have NaN parameters. Thus, the first step was to drop all entries that have missing information. Then, the dataset, which has 17 columns (parameters), were simplified for the purpose of this analysis. Impertinent columns were dropped and and the crimerate dataframe was ordered with the most recent date at the top (2019-10-13).
+
+<p align="center">
+  <img width="500" height="500" src="/images/df_crime.png">
+</p>
 
 	![df_crime](/images/df_crime.png)  
 								*Figure 1*
@@ -112,7 +116,7 @@ After clustering the data points based on venues, a map of Boston with cluster p
 ### Crime Incident Report Results
 Now that we have the grouped the crime incidents based on the number of reports, we can use a bar graph to see what the top 10 crime incidents are bewteen Janurary 2019 and October 2019.
 
-![top10-barh](/images/top10-barh.png)  
+![top10_barh](/images/top10_barh.png)  
  								*Figure 8*
 
 Let's also take a look at the choropleth map of districts in Boston based on the number of crime incident reports. 
