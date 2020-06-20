@@ -25,13 +25,15 @@ The goal of this capstone project is to explore and extrapolate exisiting data t
 	
 -  Note that in figure 1, the data set from the website contains the district code but not the name. This proved to be confusing in the analysis portion. The next step in data pre-processing was to map each district name from the *boston_district.csv* to the processed crime dataframe. The result is shown in figure 2
 
-	![df](/images/df.png)  
-								*Figure 2*
+<p align="center">
+  <img src="/images/df.png"> <br> Figure 2
+</p>
 
 -  In order to obtain local venues from each district in Boston, the foursqare API was implemented. With each API request (given latitude and longitude coordinates), the design limit was set to 100 venues and a radius of 1200 meters. Here is an example of the venues data set that was returned. 
 
-	![api-preprocess](/images/api-preprocess.png)  
-								*Figure 3*
+<p align="center">
+  <img src="/images/api-preprocess.png"> <br> Figure 3
+</p>
 
 
 ## Methodology
@@ -86,18 +88,26 @@ In this methodology section, 3 main objectives were explored. Which category has
     ``` 
 By calling the groupby function, we are able to see the the number of venues in each neighborhood. 
 
-	![explore_venues](/images/explore_venues.png)  
-								*Figure 4*
+<p align="center">
+  <img src="/images/explore_venues.png"> <br> Figure 3
+</p>
 
-	![unique_cat](/images/unique_cat.png)  
-								*Figure 4*
+<p align="center">
+  <img src="/images/unique_cat.png"> <br> Figure 3
+</p>
 
 3. In order to analyze each neighborhood in the data set, the data needed to be converted into one-hot encoding format. The point of converting data set is because we are examining categorical data; The different types of venues that are located in each neighborhood. Many machine learning algorithms, such as K-means clustering used in this project, cannot perform on raw data that is returned by the API. Therefore, we need to convert the data into numerical form.  
 
+<p align="center">
+  <img src="/images/onehot.png"> <br> Figure 3
+</p>
+
 After performing one-hot encoding on the dataset, the dataframe is sorted to output the 10 most common venues in each neighborhood. 
-	
- 	![unique_cat](/images/unique_cat.png)  
-								*Figure 4*
+
+<p align="center">
+  <img src="/images/district_venues.png"> <br> Figure 3
+</p>
+
 
 4. Becuase there are similar venues in each neighborhood, I decided to implement K-means clustering to group the neighborhoods. K-means algorithm is one of the most popular unsupervised machine learning algorithm. I set the number of clusters to 4 for this project. 
 ```
@@ -113,56 +123,73 @@ After clustering the data points based on venues, a map of Boston with cluster p
 ### Crime Incident Report Results
 Now that we have the grouped the crime incidents based on the number of reports, we can use a bar graph to see what the top 10 crime incidents are bewteen Janurary 2019 and October 2019.
 
-![top10_barh](/images/top10_barh.png)  
- 								*Figure 8*
+<p align="center">
+  <img src="/images/top10_barh.png"> <br> Figure 3
+</p>
+
+We can conclude that motor vehicle accident reponse is the most prominent recorded incident between Janurary 2019 and October 2019. The second most frequent is medical assistance incident reports. The most frequent "criminal" incident is larceny, which has 5,673 recorded cases.  
+
 
 Let's also take a look at the choropleth map of districts in Boston based on the number of crime incident reports. 
 	
-![choropleth](/images/choropleth.png)  
- 								*Figure 9*
+<p align="center">
+  <img src="/images/choropleth.png"> <br> Figure 3
+</p>
+
+<!-- ![choropleth](/images/choropleth.png)  
+ 								*Figure 9* -->
+From the choropleth map, we can see that the districts Roxbury and Dorchester have the highest number of recorded crime incidents. Districts such as Downtown/Charlestown, East Boston, and West Roxbury have the least number of recorded incidents.
 
 Lastly, we can see the top 5 crime incident category for each district. Due to space limitations, only 3 of the districts will be shown as an example.
 
-![district_top5](/images/district_top5.png)  
- 								*Figure 8*
+<p align="center">
+  <img src="/images/district_top5.png"> <br> Figure 3
+</p>
+
+From figure XXX, we are able to see that almost all of the districts have most frequent crime incidents related to motor vehicle accident reponse and medical assitance. 
 
 ### Venues Explorartion & Clustering Results
 After performing K-means clustering on the dataset grouped based on district and venues, we can output a map that shows the districts based on cluster results. The dots represent each district's approximate location and the colors represent in which cluster they belong in. We are able to see that the dots are clustered into 4 groups, the number that we specified. 
 
- 	![cluster_map](/images/cluster_map.png)  
-  	*Figure 8*
+<p align="center">
+  <img src="/images/cluser_map.png"> <br> Figure 3
+</p>
 
 In addition, we can examine each cluster and see which districts are together. 
 
-Cluser 1:
- 	![c0](/images/c0.png)  
-  								*Figure 8*
+<p align="center">
+  <img src="/images/c0.png"> <br> Figure 3: Cluster 1
+</p>
 
-Cluser 2:
- 	![c1](/images/c1.png)  
-  								*Figure 8*
+<p align="center">
+  <img src="/images/c1.png"> <br> Figure 3: Cluster 2
+</p>
 
-Cluser 3:
- 	![c2](/images/c2.png)  
-  								*Figure 8*
+<p align="center">
+  <img src="/images/c2.png"> <br> Figure 3: Cluster 3
+</p>
 
-Cluser 4:
- 	![c3](/images/c3.png)  
-  								*Figure 8*
+<p align="center">
+  <img src="/images/c3.png"> <br> Figure 3: Cluster 4
+</p>
 
 
 ## Discussion
 ### Crime Incident Report Discussion
+As seen in the results section, we can conclude that Boston is a relatively safe place to start a business. Of course, we will need to compare this data with data from other cities. But from what we can see, most crime incident reports in most districts are related to motor vehicle accident responses and medical assistance. These are less severe crimes. In addition, it appears that areas such as Roxbury, South End, and Dorchester have the highest frequency of crime incident reports. Districts such as Downtown/Charlestown, West Roxbury, and East Boston have the least number of reports. 
 
+Thus, considering from venue/restaurant safety, it is recommended to open in districts that have less crime incident reports. Downtown/Charlestown, West Roxbury, and East Boston should be highly considered as optimal locations over other areas. 
 
+### Venues Explorartion & Clustering Discussion
+After clustering, we can see that the Downtown/Charlestown area is clustered into purple dots (cluster 2). After closer examination, we see that the districts in cluser 2 all have Italian restaurants, parks and food related venues. Cluster 1 includes districts that have many food related venues in general. Cluster 3 is clustered due to its high prominence of Caribbean restaurants. Cluster 4 is clustered due to its number of stores and cafes. 
 
-
-
-
-### Venues Exploration & Clustering Discussion
-
-
+Thus, if one wants to open an Italian restaurant, it is recommended to avoid opening in Downtown/Charlestown, East Boston, South Boston, South End areas. There will undoubtedly be competition. Once again, this is an example and can be applied to other scenarios. The entrepreneurial individual can decide which district has the least competition for his/her venue business based on already established venues. 
 
 
 ## Conclusion
+Two of the most important factors to look at when one decides to open a venue business is the safety of the location and local area competition. This project dives into examining the crime incident reports in each district in Boston as well as local venues in each district. When one is opening a restaurant, he or she should pick the district with minimal criminal incident reports and least competition for his or her business. 
+
+
+## Future Directions and Project Retrospection
+
 
