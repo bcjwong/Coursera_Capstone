@@ -1,6 +1,7 @@
 # Crime Incidents & Venues Data Analysis in Boston
 Coursera - Applied Data Science Capstone  
-Capstone Project - The Battle of Neighborhoods
+Capstone Project - The Battle of Neighborhoods  
+Benjamin Wong
 
 ## Introduction/Business Problem
 The goal of this capstone project is to explore and extrapolate exisiting data to solve real life problems. Hence, for this project, we will look at which location in Boston is most promising for opening a new restaurant. Specifically, we will explore the crime rates in the 12 districts of Boston, different types of venues in each location, and output the safest and most profitable location to open a restaurant venue. 
@@ -86,11 +87,11 @@ In this methodology section, 3 main objectives were explored. Which category has
                                    longitudes=bos_df['LONG']
                                   )
     ``` 
-By calling the groupby function, we are able to see the the number of venues in each neighborhood. 
-
 <p align="center">
   <img src="/images/explore_venues.png"> <br> Figure 3
 </p>
+
+By calling the groupby function, we are able to see the the number of venues in each district. 
 
 <p align="center">
   <img src="/images/unique_cat.png"> <br> Figure 3
@@ -109,19 +110,18 @@ After performing one-hot encoding on the dataset, the dataframe is sorted to out
 </p>
 
 
-4. Becuase there are similar venues in each neighborhood, I decided to implement K-means clustering to group the neighborhoods. K-means algorithm is one of the most popular unsupervised machine learning algorithm. I set the number of clusters to 4 for this project. 
+4. Becuase there are similar venues in each neighborhood, I decided to implement K-means clustering to group the districts. K-means algorithm is one of the most popular unsupervised machine learning algorithm. For this project, the number of clusters is set to 4. 
 ```
 kmeans = KMeans(n_clusters=kclusters, random_state=0).fit(bos_grouped_clustering)
 ```
 *NOTE: I will explain some tests I performed regarding K-means as well as some thoughts about this implementation at the end of this report.*
 
-5. Visualization and cluster examination
-After clustering the data points based on venues, a map of Boston with cluster points is created for visualization. Each cluster with district and top venues can also be printed out for more information about the types of venues that reside in the districts. 
+5. The last part is visualization and cluster examination. After clustering the data points based on venues, a map of Boston with cluster points is created for visualization. Each cluster with district and top venues can be printed out for more information about the types of venues that reside in the districts. 
 
 
 ## Results
 ### Crime Incident Report Results
-Now that we have the grouped the crime incidents based on the number of reports, we can use a bar graph to see what the top 10 crime incidents are bewteen Janurary 2019 and October 2019.
+Now that we have the grouped the crime incidents based on the number of reports, we can use a bar graph to see the top 10 crime incidents bewteen Janurary 2019 and October 2019.
 
 <p align="center">
   <img src="/images/top10_barh.png"> <br> Figure 3
@@ -152,7 +152,7 @@ From figure XXX, we are able to see that almost all of the districts have most f
 After performing K-means clustering on the dataset grouped based on district and venues, we can output a map that shows the districts based on cluster results. The dots represent each district's approximate location and the colors represent in which cluster they belong in. We are able to see that the dots are clustered into 4 groups, the number that we specified. 
 
 <p align="center">
-  <img src="/images/cluser_map.png"> <br> Figure 3
+  <img src="/images/cluster_map.png"> <br> Figure 3
 </p>
 
 In addition, we can examine each cluster and see which districts are together. 
@@ -183,7 +183,7 @@ Thus, considering from venue/restaurant safety, it is recommended to open in dis
 ### Venues Explorartion & Clustering Discussion
 After clustering, we can see that the Downtown/Charlestown area is clustered into purple dots (cluster 2). After closer examination, we see that the districts in cluser 2 all have Italian restaurants, parks and food related venues. Cluster 1 includes districts that have many food related venues in general. Cluster 3 is clustered due to its high prominence of Caribbean restaurants. Cluster 4 is clustered due to its number of stores and cafes. 
 
-Thus, if one wants to open an Italian restaurant, it is recommended to avoid opening in Downtown/Charlestown, East Boston, South Boston, South End areas. There will undoubtedly be competition. Once again, this is an example and can be applied to other scenarios. The entrepreneurial individual can decide which district has the least competition for his/her venue business based on already established venues. 
+Thus, if one wants to open an Italian restaurant, it is recommended to avoid opening in Downtown/Charlestown, East Boston, South Boston, South End areas. There will undoubtedly be competition. This is just an example and can be applied to other scenarios. The entrepreneurial individual can decide which district has the least competition for his/her venue business based on already established venues. 
 
 
 ## Conclusion
@@ -191,5 +191,10 @@ Two of the most important factors to look at when one decides to open a venue bu
 
 
 ## Future Directions and Project Retrospection
+This is only the first step to deciding the optimal location to open a restaurant revenue. In order to make a more educated decision, more data sets and better processed parameters are needed. Future steps include obtaining more data about each district, such as district economy and income. Furthermore, the data set is only dated during the year 2019 for simplicity. More historical and up-to-date data is needed for better performance. 
 
+In retrospect, K-means may not be the most optimal machine learning tool for this project. I went to to compute the best K value using the elbow metho, but the result was not straight forward. There was no obvious elbow point for clustering the data. However, based on past experiences and intuition, I went with 4 clusters. Exploring different machine learning algorithms should also be considered in the future. 
+
+
+Thank you
 
