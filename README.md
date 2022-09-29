@@ -47,8 +47,8 @@ In this methodology section, 3 main objectives were explored. Which category has
 1. By grouping the crime data set based on crime incident category, and then sorting the values based on the number of incidents, we are able to obtain the top crime incidents in Boston.
 
 	```
-	district_crime = df.groupby('CATEGORY').count()
-	district_crime.sort_values(by='DISTRICT', ascending=False, inplace=True)
+	crime_category = df.groupby('CATEGORY').count()
+	crime_top10 = crime_category['DISTRICT'].head(10)
 	```
 
 2. A choropleth map is used to show the number of reported crime incidents in each district. This is achieved by first grouping the dataframe by districts, and then ordering by number of entries. The choropleth map is plotted using the folium library. 
